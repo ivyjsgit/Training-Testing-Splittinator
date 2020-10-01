@@ -25,6 +25,12 @@ for dir in listdirs(training_dir):
     if not os.path.exists(current_testing_dir):
         os.makedirs(current_testing_dir)    
 
-    map(lambda before_move, after_move: os.rename(before_move, after_move), test_files_dir_before_moves, test_files_dir_after_moves)
+    for i in range(len(test_files_dir_before_moves)):
+        before_move = test_files_dir_before_moves[i]
+        after_move = test_files_dir_after_moves[i]
+        print(f"Moving {before_move} {after_move}")
+        os.rename(before_move, after_move)
+
+    # map(lambda before_move, after_move: os.rename(before_move, after_move), test_files_dir_before_moves, test_files_dir_after_moves)
 
     
