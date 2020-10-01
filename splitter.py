@@ -22,6 +22,9 @@ for dir in listdirs(training_dir):
     test_files_dir_before_moves = list(map((lambda n:  f"{current_dir}/{n}"), test_files))
     test_files_dir_after_moves = list(map((lambda n: f"{current_testing_dir}/{n}"), test_files))
 
+    if not os.path.exists(current_testing_dir):
+        os.makedirs(current_testing_dir)    
+
     map(lambda before_move, after_move: os.rename(before_move, after_move), test_files_dir_before_moves, test_files_dir_after_moves)
 
     
